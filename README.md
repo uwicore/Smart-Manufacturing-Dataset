@@ -21,6 +21,8 @@ a) Plant view
 
 
 c) Press line and quality control.
+
+
 Figure 1. Industrial production plant.
 
 The warehouse uses an automatic stock management system. This system monitors the availability of stored material through sensors installed on the shelves. These sensors send a signal when a shelf is occupied or empty. The material is loaded and unloaded on the shelves using a crane. Three AGVs transport materials (steel sheets) from the receiving warehouse to the production lines. The AGVs are managed by an AGV manager. At the beginning of each production line, there are designated areas for the delivery of the material transported by the AGVs. Sensors installed at these areas automatically send a material request message to the warehouse's stock management system when they detect a shortage of materials. Upon receiving a material request message, the automatic stock management system prepares the materials. Once the materials are ready, the AGV manager sends a message to assign the transport task to one of the AGVs. The AGVs periodically transmit a message with their current position to the AGV controller to manage the movement of the AGVs and avoid potential collisions.
