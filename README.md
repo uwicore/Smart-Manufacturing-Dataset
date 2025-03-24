@@ -1,4 +1,4 @@
-# Smart-Manufacturing-Dataset
+# Smart Manufacturing Dataset
 The dataset available in this repository contains information about the messages generated and data exchanged between devices, robots, machinery, sensors, actuators, operators, controllers, etc. in a real industrial scenario through an industrial (wired and/or wireless) network. The dataset has been generated using the virtual model of a realistic industrial scenario representing a steel sheet pressing plant for manufacturing automobile doors. The virtual model has been developed using the Virtual Component software [1]. The dataset contains the data generated during a 19 hours of operation.
 
 # Industrial Scenario
