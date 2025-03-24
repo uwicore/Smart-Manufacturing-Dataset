@@ -54,6 +54,7 @@ Table I. data_communications.csv data.
 
 ## File: data_position.csv 
 This file logs the position of the nodes (devices, robots, machinery, sensors, actuators, operators, controllers, etc.) in the industrial plant during the whole simulation. For static nodes, position is only logged at the beginning of the simulation. For mobile nodes, the position is checked periodically every 0.5 seconds. If there is a change compared to the previously recorded position, the new position is logged.
+
 Table II. data_position.csv data.
 
 ### Data Position
@@ -86,6 +87,7 @@ Table III. data_states.csv data.
 
 ## Messages and data generated in the industrial scenario
 The data and characteristics of the messages generated are described in the next table:
+
 Table IV. Data generated in the industrial plant.
 
 ### Industrial Plant Messages
