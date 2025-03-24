@@ -3,6 +3,8 @@ The dataset available in this repository contains information about the messages
 
 # Industrial Scenario
 The digital model corresponds to a steel sheet pressing plant for manufacturing automobile doors. This scenario is based on a layout available in the catalogue of Visual Components software which models a real production line composed of three consecutive presses that transform steel sheets for automobile door production. This layout has been extended to model a complete production plant. In particular, the number of production lines has increased to three, and a warehouse where raw materials are stored before production and a shipping warehouse where the manufactured material is stored have been implemented. Figure 1.a shows a view of the complete industrial production plant. 
+
+
 ![image](https://github.com/user-attachments/assets/1b1197c0-464f-4f48-aadb-6412998af28b)
 
 
