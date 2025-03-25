@@ -31,9 +31,11 @@ The plant also implements a Central Monitoring System that collects data about t
 # Dataset
 The dataset contains three csv files with structured information about the data exchange in the industrial scenario, the position of the devices, robots, machinery, sensors, actuators, operators, controllers, etc. in the plant during the whole simulation, and the logging of different events that take place in the plant (changes in the state of the different devices, machineries or production processes) and that can be related with the generation of data. The information contained in each file is organized as follows:
 ## data_communications.csv 
-This file contains information about the generated packets with data to be exchanged between different nodes (devices, robots, machinery, sensors, actuators, operators, controllers, etc.) in the industrial scenario. It includes information about the source and destination of the data, the size of the message, the time at which the message is generated, whether the message is generated periodically, and their latency and reliability requirements, among others. The size of the message, periodicity, and latency and reliability requirements have been established based on the traffic characteristics and requirements presented in 3GPP 22.104 [ref]. Next table provides a detailed description of the data contained in the data_communications.csv file.
+This file contains information about the generated packets with data to be exchanged between different nodes (devices, robots, machinery, sensors, actuators, operators, controllers, etc.) in the industrial scenario. It includes information about the source and destination of the data, the size of the message, the time at which the message is generated, whether the message is generated periodically, and their latency and reliability requirements, among others. The size of the message, periodicity, and latency and reliability requirements have been established based on the traffic characteristics and requirements presented in 3GPP 22.104 [2]. Next table provides a detailed description of the data contained in the data_communications.csv file.
 
 <p align="center"><b>Table I. data_communications.csv data.</b></p>
+
+<div align="center">
 
 | Column Name        | Description                                         | Values |
 |--------------------|-----------------------------------------------------|--------|
@@ -49,12 +51,15 @@ This file contains information about the generated packets with data to be excha
 | Reliability     | Percentage of messages that should be delivered successfully within the latency limit | float (%) |
 | Confirmation    | Indicates whether confirmation is needed for the transmission | `"TRUE"` (if ACK needed) / `"FALSE"` (if ACK not needed) |
 
+</div>
 
 ## data_position.csv 
 This file logs the position of the nodes (devices, robots, machinery, sensors, actuators, operators, controllers, etc.) in the industrial plant during the whole simulation. For static nodes, position is only logged at the beginning of the simulation. For mobile nodes, the position is checked periodically every 0.5 seconds. If there is a change compared to the previously recorded position, the new position is logged.
 
 <p align="center"><b>Table II. data_position.csv data.</b></p>
 
+<div align="center">
+  
 | Field Name     | Description                                                   | Values     |
 |---------------|---------------------------------------------------------------|-----------|
 | Iteration     | Sequential number                                             | integer   |
@@ -67,10 +72,14 @@ This file logs the position of the nodes (devices, robots, machinery, sensors, a
 | Orientation_Y |  | real |
 | Orientation_Z |  | real |
 
+</div>
+
 ## data_states.csv  
 This file registers the initial and new states of each node during the simulation.
 
 <p align="center"><b>Table III. data_states.csv data.</b></p>
+
+<div align="center"> 
 
 | Field Name     | Description                                                   | Values     |
 |---------------|---------------------------------------------------------------|-----------|
@@ -79,35 +88,41 @@ This file registers the initial and new states of each node during the simulatio
 | Component     | Component that experiences a state change                     | string    |
 | State         | Current operational state                                     | string    |
 
+</div>
+
 ## Messages and data generated in the industrial scenario
 The data and characteristics of the messages generated are described in the next table:
 
 <p align="center"><b>Table IV. Data generated in the industrial plant.</b></p>
 
+<div align="center">
+
 | Message                           | Tx                               | Rx                                 | Size (bytes) | Latency (ms) | Reliability (%) | ACK  | Period (ms) |
 |-----------------------------------|----------------------------------|------------------------------------|-------------|-------------|----------------|------|-------------|
 | Shelf sensor updates              | Shelf sensors                   | Crane Controller                   | 64          | 100         | 99.9999        | yes  | -           |
-| Crane Commands                    | Crane Controller                | Crane                              | 1000        | 50          | 99.9999        | yes  | -           |
-| Crane Status                      | Crane                           | Crane Controller                   | 64          | 1000        | 99             | yes  | 5s        |
-| Production Line Material Request  | Feed Line Robot                 | Storage Controller                 | 1000        | 50          | 99.9999        | yes  | -           |
-| AGVs Management                   | AGV Controller                  | AGV Units                          | 1000        | 50          | 99.9999        | yes  | -           |
+| Crane Commands                    | Crane Controller                | Crane                              | 1kB        | 50          | 99.9999        | yes  | -           |
+| Crane Status                      | Crane                           | Crane Controller                   | 64          | 1s        | 99             | yes  | 5s        |
+| Production Line Material Request  | Feed Line Robot                 | Storage Controller                 | 1kB        | 50          | 99.9999        | yes  | -           |
+| AGVs Management                   | AGV Controller                  | AGV Units                          | 1kB        | 50          | 99.9999        | yes  | -           |
 | AGVs Status                       | AGV Units                       | AGV Controller                     | 250         | period      | 99.9999        | -    | 100         |
-| AGVs Commands                     | AGV Units                       | AGV Controller                     | 1000        | 50          | 99.9999        | yes  | -           |
+| AGVs Commands                     | AGV Units                       | AGV Controller                     | 1kB        | 50          | 99.9999        | yes  | -           |
 | Shelves Statistics                | Crane Controller                | Global Monitoring System           | 1MB         | period      | 99.9999        | yes  | 60s       |
 | AGVs Statistics                   | AGV Controller                  | Global Monitoring System           | 1MB         | period      | 99.9999        | yes  | 60s       |
 | Conveyor Sensor Update            | Input Line Conveyors            | Input Line Robots Controllers      | 40          | 50          | 99.9999        | yes  | -           |
-| Feed Command                      | Input Line Robots Controllers   | Input Line Robots Arms             | 1000        | 50          | 99.9999        | -    | -           |
-| Robot State                       | Input Line Robots Controllers   | Input Line Robots Controllers      | 1000        | 50          | 99.9999        | -    | -           |
+| Feed Command                      | Input Line Robots Controllers   | Input Line Robots Arms             | 1kB        | 50          | 99.9999        | -    | -           |
+| Robot State                       | Input Line Robots Controllers   | Input Line Robots Controllers      | 1kB        | 50          | 99.9999        | -    | -           |
 | Conveyor Sensor Update            | Input Line Conveyors            | Feed Press Robot Controllers       | 40          | 50          | 99.9999        | yes  | -           |
-| Press Status                      | Presses                         | Feed Press Robot Controllers       | 1000        | 50          | 99.9999        | yes  | -           |
+| Press Status                      | Presses                         | Feed Press Robot Controllers       | 1kB        | 50          | 99.9999        | yes  | -           |
 | Conveyor Sensor Update            | Output Line Conveyors           | Feed Press Robot Controllers       | 40          | 50          | 99.9999        | yes  | -           |
 | Quality Sensor Updates            | Quality Sensor                  | Camera Controller                  | 40          | 50          | 99.9999        | yes  | -           |
-| Quality Camera Commands           | Camera Controller               | Camera                             | 1000        | 50          | 99.9999        | yes  | -           | 
+| Quality Camera Commands           | Camera Controller               | Camera                             | 1kB        | 50          | 99.9999        | yes  | -           | 
 | Quality Camera Data               | Camera                          | Camera Controller                  | 7.6MB       | 66.7        | 99.99          | yes  | -           |
-| Quality Result                    | Camera Controller               | Quality Robot Controller           | 1000        | 50          | 99.9999        | yes  | -           |
+| Quality Result                    | Camera Controller               | Quality Robot Controller           | 1kB        | 50          | 99.9999        | yes  | -           |
 | Robot Statistics                  | Robot Controllers               | Global Monitoring System           | 100kB       | 500         | 99.99          | yes  | 60s       |
 | Press Statistics                  | Presses                         | Global Monitoring System           | 100kB       | 500         | 99.99          | yes  | 60s       |
 | Quality Statistics                | Camera Controller               | Global Monitoring System           | 100kB       | 500         | 99.99          | yes  | 60s       |
+
+</div>
 
 # Contact
 Feel free to contact the corresponding authors M.Carmen Lucas-Estañ (m.lucas@umh.es) or Javier Gozálvez (j.gozalvez@umh.es) if you have any question about the datasets.
@@ -127,4 +142,5 @@ This work has been funded by European Union's Horizon Europe Research and Innova
 # References
 
 [1] Virtual Components website: https://www.visualcomponents.com/
-[2]	3GPP, TSG CNT; 5G System; Network Data Analytics Services; Stage 3; Rel 18, 3GPP TS 29.520 V18.7.0; Sept. 2024.
+
+[2]	3GPP, TSGS SA; Service requirements cyber-physical control applications in vertical domains; Stage 1; Rel19, 3GPP TS 22.104, V19.2.0, June. 2024
