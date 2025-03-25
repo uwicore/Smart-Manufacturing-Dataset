@@ -85,13 +85,13 @@ The data and characteristics of the messages generated are described in the next
 |-----------------------------------|----------------------------------|------------------------------------|-------------|-------------|----------------|------|-------------|
 | Shelf sensor updates              | Shelf sensors                   | Crane Controller                   | 64          | 100         | 99.9999        | yes  | -           |
 | Crane Commands                    | Crane Controller                | Crane                              | 1000        | 50          | 99.9999        | yes  | -           |
-| Crane Status                      | Crane                           | Crane Controller                   | 64          | 1000        | 99             | yes  | 5000        |
+| Crane Status                      | Crane                           | Crane Controller                   | 64          | 1000        | 99             | yes  | 5s        |
 | Production Line Material Request  | Feed Line Robot                 | Storage Controller                 | 1000        | 50          | 99.9999        | yes  | -           |
 | AGVs Management                   | AGV Controller                  | AGV Units                          | 1000        | 50          | 99.9999        | yes  | -           |
 | AGVs Status                       | AGV Units                       | AGV Controller                     | 250         | period      | 99.9999        | -    | 100         |
 | AGVs Commands                     | AGV Units                       | AGV Controller                     | 1000        | 50          | 99.9999        | yes  | -           |
-| Shelves Statistics                | Crane Controller                | Global Monitoring System           | 1000000     | period      | 99.9999        | yes  | 60000       |
-| AGVs Statistics                   | AGV Controller                  | Global Monitoring System           | 1000000     | period      | 99.9999        | yes  | 60000       |
+| Shelves Statistics                | Crane Controller                | Global Monitoring System           | 1MB         | period      | 99.9999        | yes  | 60s       |
+| AGVs Statistics                   | AGV Controller                  | Global Monitoring System           | 1MB         | period      | 99.9999        | yes  | 60s       |
 | Conveyor Sensor Update            | Input Line Conveyors            | Input Line Robots Controllers      | 40          | 50          | 99.9999        | yes  | -           |
 | Feed Command                      | Input Line Robots Controllers   | Input Line Robots Arms             | 1000        | 50          | 99.9999        | -    | -           |
 | Robot State                       | Input Line Robots Controllers   | Input Line Robots Controllers      | 1000        | 50          | 99.9999        | -    | -           |
@@ -100,11 +100,11 @@ The data and characteristics of the messages generated are described in the next
 | Conveyor Sensor Update            | Output Line Conveyors           | Feed Press Robot Controllers       | 40          | 50          | 99.9999        | yes  | -           |
 | Quality Sensor Updates            | Quality Sensor                  | Camera Controller                  | 40          | 50          | 99.9999        | yes  | -           |
 | Quality Camera Commands           | Camera Controller               | Camera                             | 1000        | 50          | 99.9999        | yes  | -           | 
-| Quality Camera Data               | Camera                          | Camera Controller                  | 7600000     | 66.7        | 99.99          | yes  | -           |
+| Quality Camera Data               | Camera                          | Camera Controller                  | 7.6MB       | 66.7        | 99.99          | yes  | -           |
 | Quality Result                    | Camera Controller               | Quality Robot Controller           | 1000        | 50          | 99.9999        | yes  | -           |
-| Robot Statistics                  | Robot Controllers               | Global Monitoring System           | 100000      | 500         | 99.99          | yes  | 60000       |
-| Press Statistics                  | Presses                         | Global Monitoring System           | 100000      | 500         | 99.99          | yes  | 60000       |
-| Quality Statistics                | Camera Controller               | Global Monitoring System           | 100000      | 500         | 99.99          | yes  | 60000       |
+| Robot Statistics                  | Robot Controllers               | Global Monitoring System           | 100kB       | 500         | 99.99          | yes  | 60s       |
+| Press Statistics                  | Presses                         | Global Monitoring System           | 100kB       | 500         | 99.99          | yes  | 60s       |
+| Quality Statistics                | Camera Controller               | Global Monitoring System           | 100kB       | 500         | 99.99          | yes  | 60s       |
 
 # Contact
 Feel free to contact the corresponding authors M.Carmen Lucas-Estañ (m.lucas@umh.es) or Javier Gozálvez (j.gozalvez@umh.es) if you have any question about the datasets.
