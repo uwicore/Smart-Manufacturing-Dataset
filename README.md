@@ -137,7 +137,7 @@ The datasets used in the research presented in this article, and distributed as 
 VISUAL COMPONENTS OY SHALL IN NO EVENT BE LIABLE FOR THE USE OF THE DATASETS GENERATED WITH ITS SIMULATION SOLUTIONS AND SIMULATION MODELS AND THE RESULTS DERIVED THEREFROM.
 
 # Acknowledgements
-This work has been funded by European Union's Horizon Europe Research and Innovation programme under the ZeroSWARM project (No. 101057083), by MCIN/AEI/10.13039/ 501100011033 and the “European Union NextGenerationEU /PRTR” (TED2021-130436B-I00) and by Generalitat Valenciana (CIGE/2022/17).
+This work has been funded by European Union's Horizon Europe Research and Innovation programme under the ZeroSWARM project (No. 101057083), by MICIU/AEI/ 10.13039/501100011033 and the “ERFD/EU” (PID2023-150308OB-I00) and by Generalitat Valenciana (CIGE/2022/17).
 
 # References
 
